@@ -2,6 +2,8 @@
 
 import Image from 'next/image'
 import { FaShieldAlt, FaDoorClosed, FaDice, FaUsers } from 'react-icons/fa'
+import { FaTelegram } from 'react-icons/fa'
+import { SiLine } from 'react-icons/si'
 import { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
@@ -20,7 +22,7 @@ export default function Home() {
     // 设置初始状态
     const heroTitle = heroRef.current.querySelector('h1')
     const heroText = heroRef.current.querySelector('p')
-    const heroButton = heroRef.current.querySelector('button')
+    const heroButton = heroRef.current.querySelector('a')
 
     if (heroTitle && heroText && heroButton) {
       gsap.set(heroTitle, { y: 100, opacity: 0 })
@@ -123,12 +125,31 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-gray-900">
       {/* Hero Section */}
-      <div ref={heroRef} className="relative h-screen">
+      <section ref={heroRef} className="relative h-screen" aria-label="Welcome">
         <div className="absolute inset-0 bg-black/40 z-10" />
+        {/* Social Icons */}
+        <div className="absolute top-6 right-6 flex gap-6 z-30">
+          <a
+            href="https://t.me/doubleup79"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-red-500 hover:text-white transition-all duration-300 hover:scale-110"
+          >
+            <FaTelegram className="w-12 h-12" />
+          </a>
+          <a
+            href="https://line.me/ti/p/d6PuGxr5GA"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-red-500 hover:text-white transition-all duration-300 hover:scale-110"
+          >
+            <SiLine className="w-12 h-12" />
+          </a>
+        </div>
         <div className="absolute inset-0">
           <Image
             src="/poker.jpg"
-            alt="FEIJI Poker Background"
+            alt="FEIJI POKER - Premium Poker Experience in Bangkok"
             fill
             className="object-cover"
             priority
@@ -136,21 +157,26 @@ export default function Home() {
         </div>
         <div className="relative z-20 h-full flex flex-col items-center justify-center text-white px-4">
           <h1 className="text-5xl md:text-7xl font-bold text-center mb-6 relative z-20">
-            Welcome to <span className="neon-text">FEIJI POKER</span>
+            Welcome to <span className="neon-text" aria-label="FEIJI POKER">FEIJI POKER</span>
           </h1>
           <p className="text-xl md:text-2xl text-center mb-12 max-w-2xl relative z-20">
             Experience exclusive poker games in the heart of Bangkok
           </p>
           <div className="relative z-30">
-            <button className="bg-red-600 hover:bg-red-700 text-white px-12 py-4 rounded-full text-xl font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-red-600/50 transform hover:-translate-y-1">
+            <a
+              href="https://t.me/doubleup79"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block bg-red-600 hover:bg-red-700 text-white px-12 py-4 rounded-full text-xl font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-red-600/50 transform hover:-translate-y-1"
+            >
               Join Us Today
-            </button>
+            </a>
           </div>
         </div>
-      </div>
+      </section>
 
       {/* Features Section */}
-      <section ref={featuresRef} className="py-20 bg-gradient-to-b from-gray-900 to-gray-800">
+      <section ref={featuresRef} className="py-20 bg-gradient-to-b from-gray-900 to-gray-800" aria-label="Features">
         <div className="max-w-7xl mx-auto px-4">
           <h2 className="text-3xl md:text-5xl font-bold text-center text-white mb-16">
             Why Choose <span className="neon-text">FEIJI Poker</span>
@@ -178,7 +204,7 @@ export default function Home() {
       </section>
 
       {/* About Section */}
-      <section ref={aboutRef} className="py-20 bg-gradient-to-b from-gray-800 to-gray-900">
+      <section ref={aboutRef} className="py-20 bg-gradient-to-b from-gray-800 to-gray-900" aria-label="About Us">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center max-w-3xl mx-auto">
             <h2 className="text-3xl md:text-5xl font-bold text-white mb-8">
@@ -197,7 +223,7 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-gray-300 py-8 border-t border-gray-800">
+      <footer className="bg-gray-900 text-gray-300 py-8 border-t border-gray-800" role="contentinfo">
         <div className="max-w-7xl mx-auto px-4 text-center">
           <p> {new Date().getFullYear()} FEIJI Poker House. All rights reserved.</p>
         </div>
