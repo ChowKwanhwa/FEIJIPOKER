@@ -9,90 +9,116 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 gsap.registerPlugin(ScrollTrigger)
 
 export default function Home() {
-  const heroRef = useRef(null)
-  const featuresRef = useRef(null)
-  const featureCards = useRef([])
-  const aboutRef = useRef(null)
+  const heroRef = useRef<HTMLDivElement>(null)
+  const featuresRef = useRef<HTMLDivElement>(null)
+  const featureCards = useRef<HTMLDivElement[]>([])
+  const aboutRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    // 设置初始状态
-    gsap.set(heroRef.current.querySelector('h1'), { y: 100, opacity: 0 })
-    gsap.set(heroRef.current.querySelector('p'), { y: 50, opacity: 0 })
-    gsap.set(heroRef.current.querySelector('button'), { scale: 0, opacity: 0 })
+    if (!heroRef.current || !aboutRef.current) return
 
-    // Hero section animations
-    const heroTl = gsap.timeline()
-    heroTl.to(heroRef.current.querySelector('h1'), {
-      y: 0,
-      opacity: 1,
-      duration: 1,
-      ease: 'power4.out'
-    })
-    .to(heroRef.current.querySelector('p'), {
-      y: 0,
-      opacity: 1,
-      duration: 1,
-      ease: 'power3.out'
-    }, '-=0.5')
-    .to(heroRef.current.querySelector('button'), {
-      scale: 1,
-      opacity: 1,
-      duration: 0.5,
-      ease: 'back.out(1.7)'
-    }, '-=0.5')
+    // 设置初始状态
+    const heroTitle = heroRef.current.querySelector('h1')
+    const heroText = heroRef.current.querySelector('p')
+    const heroButton = heroRef.current.querySelector('button')
+
+    if (heroTitle && heroText && heroButton) {
+      gsap.set(heroTitle, { y: 100, opacity: 0 })
+      gsap.set(heroText, { y: 50, opacity: 0 })
+      gsap.set(heroButton, { scale: 0, opacity: 0 })
+
+      // Hero section animations
+      const heroTl = gsap.timeline()
+      heroTl.to(heroTitle, {
+        y: 0,
+        opacity: 1,
+        duration: 1,
+        ease: 'power4.out'
+      })
+      .to(heroText, {
+        y: 0,
+        opacity: 1,
+        duration: 1,
+        ease: 'power3.out'
+      }, '-=0.5')
+      .to(heroButton, {
+        scale: 1,
+        opacity: 1,
+        duration: 0.5,
+        ease: 'back.out(1.7)'
+      }, '-=0.5')
+    }
 
     // Features section animations
     featureCards.current.forEach((card, index) => {
-      gsap.from(card, {
-        scrollTrigger: {
-          trigger: card,
-          start: 'top bottom-=100',
-          toggleActions: 'play none none reverse'
-        },
-        y: 100,
-        opacity: 0,
-        duration: 0.8,
-        delay: index * 0.2,
-        ease: 'power3.out'
-      })
+      if (card) {
+        gsap.from(card, {
+          scrollTrigger: {
+            trigger: card,
+            start: 'top bottom-=100',
+            toggleActions: 'play none none reverse'
+          },
+          y: 100,
+          opacity: 0,
+          duration: 0.8,
+          delay: index * 0.2,
+          ease: 'power3.out'
+        })
+      }
     })
 
     // About section animations
-    gsap.from(aboutRef.current.querySelector('h2'), {
-      scrollTrigger: {
-        trigger: aboutRef.current,
-        start: 'top bottom-=100'
-      },
-      y: 50,
-      opacity: 0,
-      duration: 1,
-      ease: 'power3.out'
-    })
+    const aboutTitle = aboutRef.current.querySelector('h2')
+    const aboutText = aboutRef.current.querySelector('p')
+    const aboutButton = aboutRef.current.querySelector('button')
 
-    gsap.from(aboutRef.current.querySelector('p'), {
-      scrollTrigger: {
-        trigger: aboutRef.current,
-        start: 'top bottom-=100'
-      },
-      y: 50,
-      opacity: 0,
-      duration: 1,
-      delay: 0.2,
-      ease: 'power3.out'
-    })
+    if (aboutTitle) {
+      gsap.from(aboutTitle, {
+        scrollTrigger: {
+          trigger: aboutRef.current,
+          start: 'top bottom-=100'
+        },
+        y: 50,
+        opacity: 0,
+        duration: 1,
+        ease: 'power3.out'
+      })
+    }
 
-    gsap.from(aboutRef.current.querySelector('button'), {
-      scrollTrigger: {
-        trigger: aboutRef.current,
-        start: 'top bottom-=100'
-      },
-      scale: 0,
-      opacity: 0,
-      duration: 0.5,
-      delay: 0.4,
-      ease: 'back.out(1.7)'
-    })
+    if (aboutText) {
+      gsap.from(aboutText, {
+        scrollTrigger: {
+          trigger: aboutRef.current,
+          start: 'top bottom-=100'
+        },
+        y: 50,
+        opacity: 0,
+        duration: 1,
+        delay: 0.2,
+        ease: 'power3.out'
+      })
+    }
+
+    if (aboutButton) {
+      gsap.from(aboutButton, {
+        scrollTrigger: {
+          trigger: aboutRef.current,
+          start: 'top bottom-=100'
+        },
+        scale: 0,
+        opacity: 0,
+        duration: 0.5,
+        delay: 0.4,
+        ease: 'back.out(1.7)'
+      })
+    }
   }, [])
+
+  const addToRefs = (el: HTMLDivElement | null, index: number) => {
+    if (el && !featureCards.current.includes(el)) {
+      featureCards.current[index] = el
+    }
+  }
 
   return (
     <main className="min-h-screen bg-gray-900">
@@ -133,7 +159,7 @@ export default function Home() {
             {features.map((feature, index) => (
               <div
                 key={index}
-                ref={el => featureCards.current[index] = el}
+                ref={(el: HTMLDivElement | null) => addToRefs(el, index)}
                 className="bg-gray-800/50 backdrop-blur-sm p-8 rounded-xl border border-gray-700/50 hover:border-red-500/50 transition-all duration-300 group"
               >
                 <div className="text-red-500 text-4xl mb-6 group-hover:scale-110 transition-transform duration-300">
