@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1920" height="1080" version="1.1" viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+ <defs>
+  <pattern id="pattern" width="60" height="60" patternUnits="userSpaceOnUse">
+   <path d="M30,0 60,30 30,60 0,30z" fill="#1a1a1a"/>
+   <path d="M15,15h30v30h-30z" fill="#252525"/>
+   <path d="M20,20h20v20h-20z" fill="#2a2a2a"/>
+  </pattern>
+ </defs>
+ <rect width="100%" height="100%" fill="#151515"/>
+ <rect width="100%" height="100%" fill="url(#pattern)" opacity="0.4"/>
+ <rect width="100%" height="100%" fill="url(#gradient)" opacity="0.7"/>
+ <g fill="#d40000" opacity="0.15">
+   <path d="M30,15 15,30 30,45 45,30z" transform="translate(100,100)"/>
+   <path d="M30,15 15,30 30,45 45,30z" transform="translate(500,300)"/>
+   <path d="M30,15 15,30 30,45 45,30z" transform="translate(900,200)"/>
+   <path d="M30,15 15,30 30,45 45,30z" transform="translate(1300,400)"/>
+   <path d="M30,15 15,30 30,45 45,30z" transform="translate(1700,150)"/>
+ </g>
+</svg>

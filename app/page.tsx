@@ -1,101 +1,204 @@
-import Image from "next/image";
+'use client'
+
+import Image from 'next/image'
+import { FaShieldAlt, FaDoorClosed, FaDice, FaUsers } from 'react-icons/fa'
+import { useEffect, useRef } from 'react'
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+
+gsap.registerPlugin(ScrollTrigger)
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+  const heroRef = useRef(null)
+  const featuresRef = useRef(null)
+  const featureCards = useRef([])
+  const aboutRef = useRef(null)
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+  useEffect(() => {
+    // 设置初始状态
+    gsap.set(heroRef.current.querySelector('h1'), { y: 100, opacity: 0 })
+    gsap.set(heroRef.current.querySelector('p'), { y: 50, opacity: 0 })
+    gsap.set(heroRef.current.querySelector('button'), { scale: 0, opacity: 0 })
+
+    // Hero section animations
+    const heroTl = gsap.timeline()
+    heroTl.to(heroRef.current.querySelector('h1'), {
+      y: 0,
+      opacity: 1,
+      duration: 1,
+      ease: 'power4.out'
+    })
+    .to(heroRef.current.querySelector('p'), {
+      y: 0,
+      opacity: 1,
+      duration: 1,
+      ease: 'power3.out'
+    }, '-=0.5')
+    .to(heroRef.current.querySelector('button'), {
+      scale: 1,
+      opacity: 1,
+      duration: 0.5,
+      ease: 'back.out(1.7)'
+    }, '-=0.5')
+
+    // Features section animations
+    featureCards.current.forEach((card, index) => {
+      gsap.from(card, {
+        scrollTrigger: {
+          trigger: card,
+          start: 'top bottom-=100',
+          toggleActions: 'play none none reverse'
+        },
+        y: 100,
+        opacity: 0,
+        duration: 0.8,
+        delay: index * 0.2,
+        ease: 'power3.out'
+      })
+    })
+
+    // About section animations
+    gsap.from(aboutRef.current.querySelector('h2'), {
+      scrollTrigger: {
+        trigger: aboutRef.current,
+        start: 'top bottom-=100'
+      },
+      y: 50,
+      opacity: 0,
+      duration: 1,
+      ease: 'power3.out'
+    })
+
+    gsap.from(aboutRef.current.querySelector('p'), {
+      scrollTrigger: {
+        trigger: aboutRef.current,
+        start: 'top bottom-=100'
+      },
+      y: 50,
+      opacity: 0,
+      duration: 1,
+      delay: 0.2,
+      ease: 'power3.out'
+    })
+
+    gsap.from(aboutRef.current.querySelector('button'), {
+      scrollTrigger: {
+        trigger: aboutRef.current,
+        start: 'top bottom-=100'
+      },
+      scale: 0,
+      opacity: 0,
+      duration: 0.5,
+      delay: 0.4,
+      ease: 'back.out(1.7)'
+    })
+  }, [])
+
+  return (
+    <main className="min-h-screen bg-gray-900">
+      {/* Hero Section */}
+      <div ref={heroRef} className="relative h-screen">
+        <div className="absolute inset-0 bg-black/40 z-10" />
+        <div className="absolute inset-0">
+          <Image
+            src="/poker.jpg"
+            alt="FEIJI Poker Background"
+            fill
+            className="object-cover"
+            priority
+          />
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+        <div className="relative z-20 h-full flex flex-col items-center justify-center text-white px-4">
+          <h1 className="text-5xl md:text-7xl font-bold text-center mb-6 relative z-20">
+            Welcome to <span className="neon-text">FEIJI POKER</span>
+          </h1>
+          <p className="text-xl md:text-2xl text-center mb-12 max-w-2xl relative z-20">
+            Experience exclusive poker games in the heart of Bangkok
+          </p>
+          <div className="relative z-30">
+            <button className="bg-red-600 hover:bg-red-700 text-white px-12 py-4 rounded-full text-xl font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-red-600/50 transform hover:-translate-y-1">
+              Join Us Today
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* Features Section */}
+      <section ref={featuresRef} className="py-20 bg-gradient-to-b from-gray-900 to-gray-800">
+        <div className="max-w-7xl mx-auto px-4">
+          <h2 className="text-3xl md:text-5xl font-bold text-center text-white mb-16">
+            Why Choose <span className="neon-text">FEIJI Poker</span>
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {features.map((feature, index) => (
+              <div
+                key={index}
+                ref={el => featureCards.current[index] = el}
+                className="bg-gray-800/50 backdrop-blur-sm p-8 rounded-xl border border-gray-700/50 hover:border-red-500/50 transition-all duration-300 group"
+              >
+                <div className="text-red-500 text-4xl mb-6 group-hover:scale-110 transition-transform duration-300">
+                  {feature.icon}
+                </div>
+                <h3 className="text-xl font-semibold text-white mb-4">
+                  {feature.title}
+                </h3>
+                <p className="text-gray-300 leading-relaxed">
+                  {feature.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* About Section */}
+      <section ref={aboutRef} className="py-20 bg-gradient-to-b from-gray-800 to-gray-900">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="text-center max-w-3xl mx-auto">
+            <h2 className="text-3xl md:text-5xl font-bold text-white mb-8">
+              Experience <span className="neon-text">FEIJI Poker</span>
+            </h2>
+            <p className="text-gray-300 text-lg mb-10 leading-relaxed">
+              Join us for safe, enjoyable poker games every day and discover the unique
+              thrills of playing in Bangkok. Experience the best in poker, tailored just
+              for you.
+            </p>
+            <button className="bg-transparent border-2 border-red-600 text-red-500 hover:bg-red-600 hover:text-white px-8 py-3 rounded-full text-lg font-semibold transition-all duration-300 hover:scale-105">
+              Learn More
+            </button>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-gray-900 text-gray-300 py-8 border-t border-gray-800">
+        <div className="max-w-7xl mx-auto px-4 text-center">
+          <p> {new Date().getFullYear()} FEIJI Poker House. All rights reserved.</p>
+        </div>
       </footer>
-    </div>
-  );
+    </main>
+  )
 }
+
+const features = [
+  {
+    icon: <FaShieldAlt className="mx-auto" />,
+    title: "Safe and Secure",
+    description: "Top-tier security systems ensuring a safe gaming environment",
+  },
+  {
+    icon: <FaDoorClosed className="mx-auto" />,
+    title: "Private Rooms",
+    description: "Exclusive private rooms for a focused gaming experience",
+  },
+  {
+    icon: <FaDice className="mx-auto" />,
+    title: "Daily Games",
+    description: "Various stakes and formats available every day",
+  },
+  {
+    icon: <FaUsers className="mx-auto" />,
+    title: "Professional Staff",
+    description: "Experienced and friendly staff at your service",
+  },
+]
