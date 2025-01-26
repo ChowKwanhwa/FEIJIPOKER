@@ -160,7 +160,7 @@ export default function Home() {
             Welcome to <span className="neon-text">FEIJI POKER</span>
           </h1>
           <p className="text-xl md:text-2xl text-center mb-12 max-w-2xl relative z-20">
-            Bangkok's Premier Poker Experience - Safe, Professional, and Exclusive
+            Bangkok&apos;s Premier Poker Experience - Safe, Professional, and Exclusive
           </p>
           <div className="relative z-30">
             <a
@@ -179,7 +179,7 @@ export default function Home() {
       <section id="features" ref={featuresRef} className="py-20 bg-gradient-to-b from-gray-900 to-gray-800" aria-label="Features">
         <div className="max-w-7xl mx-auto px-4">
           <h2 className="text-3xl md:text-5xl font-bold text-center text-white mb-16">
-            Bangkok's Top Poker Venue
+            Bangkok&apos;s Top Poker Venue
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {features.map((feature, index) => (
@@ -213,7 +213,7 @@ export default function Home() {
             <p className="text-gray-300 text-lg mb-10 leading-relaxed">
               Located in the heart of Bangkok, FEIJI POKER offers the most exclusive and secure poker experience in Thailand. 
               Our professional dealers and state-of-the-art facilities ensure a world-class gaming environment. 
-              Whether you're a seasoned player or new to the game, our private rooms and various stakes cater to all levels.
+              Whether you&apos;re a seasoned player or new to the game, our private rooms and various stakes cater to all levels.
             </p>
             <button className="bg-transparent border-2 border-red-600 text-red-500 hover:bg-red-600 hover:text-white px-8 py-3 rounded-full text-lg font-semibold transition-all duration-300 hover:scale-105">
               Learn More
