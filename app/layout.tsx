@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import JsonLd from "./components/JsonLd";
+import Script from "next/script";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -14,12 +15,12 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "FEIJI POKER - Premium Poker Experience in Bangkok",
-  description: "Join FEIJI POKER for exclusive poker games in Bangkok. Experience safe gaming, private rooms, and professional service. Connect with us on Telegram and Line.",
-  keywords: "FEIJI POKER, Bangkok poker, poker games, private poker rooms, safe gaming, professional poker, Thailand poker",
+  title: "FEIJI POKER Bangkok - Premium Poker Games & Private Rooms",
+  description: "Experience Bangkok's premier poker venue. Safe and professional poker games in the heart of Thailand. Private rooms, multiple stakes, and world-class service available.",
+  keywords: "Bangkok poker, Thailand poker, poker games Bangkok, private poker rooms Bangkok, safe poker Thailand, FEIJI POKER, premium poker Bangkok",
   openGraph: {
-    title: "FEIJI POKER - Premium Poker Experience in Bangkok",
-    description: "Join FEIJI POKER for exclusive poker games in Bangkok. Experience safe gaming, private rooms, and professional service.",
+    title: "FEIJI POKER Bangkok - Premium Poker Games & Private Rooms",
+    description: "Experience Bangkok's premier poker venue. Safe and professional poker games in the heart of Thailand.",
     type: "website",
     locale: "en_US",
     images: [
@@ -27,7 +28,7 @@ export const metadata: Metadata = {
         url: "/poker.jpg",
         width: 1200,
         height: 630,
-        alt: "FEIJI POKER Bangkok",
+        alt: "FEIJI POKER Bangkok - Premium Poker Experience",
       },
     ],
   },
@@ -62,6 +63,19 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <link rel="canonical" href="https://feiji-poker.com" />
+        {/* Google Analytics */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-ZMRWB9MFXK"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-ZMRWB9MFXK');
+          `}
+        </Script>
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}

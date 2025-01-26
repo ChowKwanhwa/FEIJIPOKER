@@ -157,10 +157,10 @@ export default function Home() {
         </div>
         <div className="relative z-20 h-full flex flex-col items-center justify-center text-white px-4">
           <h1 className="text-5xl md:text-7xl font-bold text-center mb-6 relative z-20">
-            Welcome to <span className="neon-text" aria-label="FEIJI POKER">FEIJI POKER</span>
+            Welcome to <span className="neon-text">FEIJI POKER</span>
           </h1>
           <p className="text-xl md:text-2xl text-center mb-12 max-w-2xl relative z-20">
-            Experience exclusive poker games in the heart of Bangkok
+            Bangkok's Premier Poker Experience - Safe, Professional, and Exclusive
           </p>
           <div className="relative z-30">
             <a
@@ -176,10 +176,10 @@ export default function Home() {
       </section>
 
       {/* Features Section */}
-      <section ref={featuresRef} className="py-20 bg-gradient-to-b from-gray-900 to-gray-800" aria-label="Features">
+      <section id="features" ref={featuresRef} className="py-20 bg-gradient-to-b from-gray-900 to-gray-800" aria-label="Features">
         <div className="max-w-7xl mx-auto px-4">
           <h2 className="text-3xl md:text-5xl font-bold text-center text-white mb-16">
-            Why Choose <span className="neon-text">FEIJI Poker</span>
+            Bangkok's Top Poker Venue
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {features.map((feature, index) => (
@@ -204,16 +204,16 @@ export default function Home() {
       </section>
 
       {/* About Section */}
-      <section ref={aboutRef} className="py-20 bg-gradient-to-b from-gray-800 to-gray-900" aria-label="About Us">
+      <section id="about" ref={aboutRef} className="py-20 bg-gradient-to-b from-gray-800 to-gray-900" aria-label="About Us">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center max-w-3xl mx-auto">
             <h2 className="text-3xl md:text-5xl font-bold text-white mb-8">
-              Experience <span className="neon-text">FEIJI Poker</span>
+              Experience Premium Poker in Bangkok
             </h2>
             <p className="text-gray-300 text-lg mb-10 leading-relaxed">
-              Join us for safe, enjoyable poker games every day and discover the unique
-              thrills of playing in Bangkok. Experience the best in poker, tailored just
-              for you.
+              Located in the heart of Bangkok, FEIJI POKER offers the most exclusive and secure poker experience in Thailand. 
+              Our professional dealers and state-of-the-art facilities ensure a world-class gaming environment. 
+              Whether you're a seasoned player or new to the game, our private rooms and various stakes cater to all levels.
             </p>
             <button className="bg-transparent border-2 border-red-600 text-red-500 hover:bg-red-600 hover:text-white px-8 py-3 rounded-full text-lg font-semibold transition-all duration-300 hover:scale-105">
               Learn More
