@@ -166,9 +166,14 @@ export default function Home() {
           <div className="relative z-30">
             <a
               href="https://t.me/doubleup79"
+              className="bg-gradient-to-r from-red-600 to-red-500 text-white px-8 py-3 rounded-full text-lg font-semibold hover:from-red-500 hover:to-red-400 transition-all duration-300 hover:scale-105"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block bg-red-600 hover:bg-red-700 text-white px-12 py-4 rounded-full text-xl font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-red-600/50 transform hover:-translate-y-1"
+              onClick={() => {
+                if (typeof window !== 'undefined' && window.gtag_report_conversion) {
+                  return window.gtag_report_conversion('https://t.me/doubleup79');
+                }
+              }}
             >
               Join Us Today
             </a>

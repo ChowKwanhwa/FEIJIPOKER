@@ -80,6 +80,22 @@ export default function RootLayout({
             gtag('js', new Date());
             gtag('config', 'G-ZMRWB9MFXK');
             gtag('config', 'AW-16838555818');
+
+            // Conversion tracking function
+            window.gtag_report_conversion = function(url) {
+              var callback = function () {
+                if (typeof(url) != 'undefined') {
+                  window.location = url;
+                }
+              };
+              gtag('event', 'conversion', {
+                'send_to': 'AW-16838555818/ySUMCK3xkZUaEKrxn90-',
+                'value': 1.0,
+                'currency': 'HKD',
+                'event_callback': callback
+              });
+              return false;
+            }
           `}
         </Script>
       </head>
