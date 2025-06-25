@@ -131,7 +131,7 @@ export default function Home() {
         {/* Social Icons */}
         <div className="absolute top-6 right-6 flex gap-6 z-30">
           <a
-            href="https://t.me/doubleup79"
+            href="https://t.me/yangcha123"
             target="_blank"
             rel="noopener noreferrer"
             className="text-red-500 hover:text-white transition-all duration-300 hover:scale-110"
