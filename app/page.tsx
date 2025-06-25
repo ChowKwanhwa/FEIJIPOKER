@@ -165,13 +165,13 @@ export default function Home() {
           </p>
           <div className="relative z-30">
             <a
-              href="https://t.me/doubleup79"
+              href="https://t.me/yangcha123"
               className="bg-gradient-to-r from-red-600 to-red-500 text-white px-8 py-3 rounded-full text-lg font-semibold hover:from-red-500 hover:to-red-400 transition-all duration-300 hover:scale-105"
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => {
                 if (typeof window !== 'undefined' && window.gtag_report_conversion) {
-                  return window.gtag_report_conversion('https://t.me/doubleup79');
+                  return window.gtag_report_conversion('https://t.me/yangcha123');
                 }
               }}
             >
