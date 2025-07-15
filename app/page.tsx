@@ -139,7 +139,7 @@ export default function Home() {
             <FaTelegram className="w-12 h-12" />
           </a>
           <a
-            href="https://line.me/ti/p/d6PuGxr5GA"
+            href="https://line.me/ti/p/pokerthai88"
             target="_blank"
             rel="noopener noreferrer"
             className="text-red-500 hover:text-white transition-all duration-300 hover:scale-110"
@@ -149,7 +149,7 @@ export default function Home() {
         </div>
         <div className="absolute inset-0">
           <Image
-            src="/poker.jpg"
+            src="/poker1.jpg"
             alt="CHANG POKER - Premium Poker Experience in Bangkok"
             fill
             className="object-cover"
