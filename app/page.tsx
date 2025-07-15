@@ -150,7 +150,7 @@ export default function Home() {
         <div className="absolute inset-0">
           <Image
             src="/poker.jpg"
-            alt="FEIJI POKER - Premium Poker Experience in Bangkok"
+            alt="CHANG POKER - Premium Poker Experience in Bangkok"
             fill
             className="object-cover"
             priority
@@ -158,7 +158,7 @@ export default function Home() {
         </div>
         <div className="relative z-20 h-full flex flex-col items-center justify-center text-white px-4">
           <h1 className="text-5xl md:text-7xl font-bold text-center mb-6 relative z-20">
-            Welcome to <span className="neon-text">FEIJI POKER</span>
+            Welcome to <span className="neon-text">CHANG POKER</span>
           </h1>
           <p className="text-xl md:text-2xl text-center mb-12 max-w-2xl relative z-20">
             Bangkok&apos;s Premier Poker Experience - Safe, Professional, and Exclusive
@@ -217,7 +217,7 @@ export default function Home() {
               Experience Premium Poker in Bangkok
             </h2>
             <p className="text-gray-300 text-lg mb-10 leading-relaxed">
-              Located in the heart of Bangkok, FEIJI POKER offers the most exclusive and secure poker experience in Thailand. 
+              Located in the heart of Bangkok, CHANG POKER offers the most exclusive and secure poker experience in Thailand. 
               Our professional dealers and state-of-the-art facilities ensure a world-class gaming environment. 
               Whether you&apos;re a seasoned player or new to the game, our private rooms and various stakes cater to all levels.
             </p>
@@ -231,7 +231,7 @@ export default function Home() {
       {/* Footer */}
       <footer className="bg-gray-900 text-gray-300 py-8 border-t border-gray-800" role="contentinfo">
         <div className="max-w-7xl mx-auto px-4 text-center">
-          <p> {new Date().getFullYear()} FEIJI Poker House. All rights reserved.</p>
+          <p> {new Date().getFullYear()} CHANG Poker House. All rights reserved.</p>
         </div>
       </footer>
     </main>
