@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://feiji-poker.com 
+Host: https://CHANG-poker.com 
 
 # Sitemaps
-Sitemap: https://feiji-poker.com /sitemap.xml
+Sitemap: https://CHANG-poker.com /sitemap.xml

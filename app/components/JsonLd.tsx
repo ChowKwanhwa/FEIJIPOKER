@@ -2,9 +2,9 @@ export default function JsonLd() {
   const organizationSchema = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    "name": "FEIJI POKER",
-    "url": "https://feiji-poker.com",
-    "logo": "https://feiji-poker.com/logo.png",
+    "name": "CHANG POKER",
+    "url": "https://CHANG-poker.com",
+    "logo": "https://CHANG-poker.com/logo.png",
     "description": "Premium poker experience in Bangkok with safe gaming, private rooms, and professional service.",
     "address": {
       "@type": "PostalAddress",
@@ -25,11 +25,11 @@ export default function JsonLd() {
   const websiteSchema = {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    "name": "FEIJI POKER",
-    "url": "https://feiji-poker.com",
+    "name": "CHANG POKER",
+    "url": "https://CHANG-poker.com",
     "potentialAction": {
       "@type": "SearchAction",
-      "target": "https://feiji-poker.com/search?q={search_term_string}",
+      "target": "https://CHANG-poker.com/search?q={search_term_string}",
       "query-input": "required name=search_term_string"
     }
   };

@@ -1,10 +1,10 @@
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
-  siteUrl: 'https://feiji-poker.com ', // 替换为你的实际域名
+  siteUrl: 'https://chang-poker.com ', // 替换为你的实际域名
   generateRobotsTxt: true,
   robotsTxtOptions: {
     additionalSitemaps: [
-      'https://feiji-poker.com /sitemap.xml',
+      'https://chang-poker.com /sitemap.xml',
     ],
   },
   changefreq: 'weekly',

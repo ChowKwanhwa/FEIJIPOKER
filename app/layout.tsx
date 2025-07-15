@@ -15,11 +15,11 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "FEIJI POKER Bangkok - Premium Poker Games & Private Rooms",
+  title: "CHANG POKER Bangkok - Premium Poker Games & Private Rooms",
   description: "Experience Bangkok's premier poker venue. Safe and professional poker games in the heart of Thailand. Private rooms, multiple stakes, and world-class service available.",
-  keywords: "Bangkok poker, Thailand poker, poker games Bangkok, private poker rooms Bangkok, safe poker Thailand, FEIJI POKER, premium poker Bangkok",
+  keywords: "Bangkok poker, Thailand poker, poker games Bangkok, private poker rooms Bangkok, safe poker Thailand, CHANG POKER, premium poker Bangkok",
   openGraph: {
-    title: "FEIJI POKER Bangkok - Premium Poker Games & Private Rooms",
+    title: "CHANG POKER Bangkok - Premium Poker Games & Private Rooms",
     description: "Experience Bangkok's premier poker venue. Safe and professional poker games in the heart of Thailand.",
     type: "website",
     locale: "en_US",
@@ -28,14 +28,14 @@ export const metadata: Metadata = {
         url: "/poker.jpg",
         width: 1200,
         height: 630,
-        alt: "FEIJI POKER Bangkok - Premium Poker Experience",
+        alt: "CHANG POKER Bangkok - Premium Poker Experience",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "FEIJI POKER - Premium Poker Experience in Bangkok",
-    description: "Join FEIJI POKER for exclusive poker games in Bangkok. Experience safe gaming, private rooms, and professional service.",
+    title: "CHANG POKER - Premium Poker Experience in Bangkok",
+    description: "Join CHANG POKER for exclusive poker games in Bangkok. Experience safe gaming, private rooms, and professional service.",
     images: ["/poker.jpg"],
   },
   robots: {
@@ -62,7 +62,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link rel="canonical" href="https://feiji-poker.com" />
+        <link rel="canonical" href="https://CHANG-poker.com" />
         {/* Google Analytics */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-ZMRWB9MFXK"
