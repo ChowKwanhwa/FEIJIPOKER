@@ -148,13 +148,24 @@ export default function Home() {
           </a>
         </div>
         <div className="absolute inset-0">
-          <Image
-            src="/poker1.jpg"
-            alt="CHANG POKER - Premium Poker Experience in Bangkok"
-            fill
-            className="object-cover"
-            priority
-          />
+          <div className="hidden md:block">
+            <Image
+              src="/poker1.jpg"
+              alt="CHANG POKER - Premium Poker Experience in Bangkok"
+              fill
+              className="object-cover"
+              priority
+            />
+          </div>
+          <div className="md:hidden">
+            <Image
+              src="/mobile-bg.png"
+              alt="CHANG POKER - Premium Poker Experience in Bangkok"
+              fill
+              className="object-cover"
+              priority
+            />
+          </div>
         </div>
         <div className="relative z-20 h-full flex flex-col items-center justify-center text-white px-4">
           <h1 className="text-5xl md:text-7xl font-bold text-center mb-6 relative z-20">
