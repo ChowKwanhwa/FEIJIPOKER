@@ -134,17 +134,17 @@ export default function Home() {
             href="https://t.me/yangcha123"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-red-500 hover:text-white transition-all duration-300 hover:scale-110"
+            className="bg-white p-2 rounded-full hover:bg-gray-200 transition-all duration-300 hover:scale-110"
           >
-            <FaTelegram className="w-12 h-12" />
+            <FaTelegram className="w-10 h-10" color="black" />
           </a>
           <a
             href="https://line.me/ti/p/pokerthai88"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-red-500 hover:text-white transition-all duration-300 hover:scale-110"
+            className="bg-white p-2 rounded-full hover:bg-gray-200 transition-all duration-300 hover:scale-110"
           >
-            <SiLine className="w-12 h-12" />
+            <SiLine className="w-10 h-10" color="black" />
           </a>
         </div>
         <div className="absolute inset-0">
@@ -168,16 +168,21 @@ export default function Home() {
           </div>
         </div>
         <div className="relative z-20 h-full flex flex-col items-center justify-center text-white px-4">
-          <h1 className="text-5xl md:text-7xl font-bold text-center mb-6 relative z-20">
-            Welcome to <span className="neon-text">CHANG POKER</span>
-          </h1>
-          <p className="text-xl md:text-2xl text-center mb-12 max-w-2xl relative z-20">
-            Bangkok&apos;s Premier Poker Experience - Safe, Professional, and Exclusive
-          </p>
-          <div className="relative z-30">
+          {/* Desktop Content */}
+          <div className="hidden md:flex md:flex-col md:items-center">
+            <h1 className="text-5xl md:text-7xl font-bold text-center mb-6">
+              Welcome to <span className="neon-text">CHANG POKER</span>
+            </h1>
+            <p className="text-xl md:text-2xl text-center mb-12 max-w-2xl">
+              Bangkok&apos;s Premier Poker Experience - Safe, Professional, and Exclusive
+            </p>
+          </div>
+
+          {/* Button - positioned absolutely on mobile, and in flow on desktop */}
+          <div className="absolute md:relative bottom-[15%] md:bottom-auto">
             <a
               href="https://t.me/yangcha123"
-              className="bg-gradient-to-r from-red-600 to-red-500 text-white px-8 py-3 rounded-full text-lg font-semibold hover:from-red-500 hover:to-red-400 transition-all duration-300 hover:scale-105"
+              className="bg-white text-black px-8 py-3 rounded-full text-lg font-semibold hover:bg-gray-200 transition-all duration-300 hover:scale-105"
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => {
